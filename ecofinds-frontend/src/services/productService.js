@@ -67,9 +67,18 @@ export const productService = {
 export const categoryService = {
   async getCategories() {
     try {
+      console.log('Fetching categories from:', `${api.defaults.baseURL}/categories`);
       const response = await api.get('/categories');
+      console.log('Categories response:', response.data);
       return response.data;
     } catch (error) {
+      console.error('Category fetch error details:', {
+        message: error.message,
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        url: error.config?.url,
+        data: error.response?.data
+      });
       throw new Error(error.response?.data?.message || 'Failed to fetch categories');
     }
   }

@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import { AttachMoney, Description, Title } from '@mui/icons-material';
 import { productService, categoryService } from '../../services/productService';
+import api from '../../services/api';
 import { PRODUCT_CONDITIONS } from '../../utils/constants';
 
 const ProductForm = ({ productId, onSuccess }) => {
@@ -24,8 +25,9 @@ const ProductForm = ({ productId, onSuccess }) => {
     description: '',
     price: '',
     categoryId: '',
-    conditionRating: '',
-    imageUrl: ''
+    conditionRating: 'GOOD',
+    imageUrl: '',
+    weight: ''
   });
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -46,8 +48,11 @@ const ProductForm = ({ productId, onSuccess }) => {
     try {
       const response = await categoryService.getCategories();
       setCategories(response);
+      setError('');
     } catch (error) {
       console.error('Failed to fetch categories:', error);
+      setCategories([]);
+      setError('Failed to load categories: ' + error.message);
     }
   };
 
@@ -57,10 +62,11 @@ const ProductForm = ({ productId, onSuccess }) => {
       setFormData({
         title: product.title || '',
         description: product.description || '',
-        price: product.price || '',
-        categoryId: product.categoryId || '',
-        conditionRating: product.conditionRating || '',
-        imageUrl: product.imageUrl || ''
+        price: product.price?.toString() || '',
+        categoryId: '', // Note: ProductResponse only has categoryName, not categoryId - would need backend enhancement for editing
+        conditionRating: product.conditionRating || 'GOOD',
+        imageUrl: product.imageUrl || '',
+        weight: product.weight?.toString() || ''
       });
     } catch (error) {
       setError('Failed to load product details');
@@ -82,8 +88,13 @@ const ProductForm = ({ productId, onSuccess }) => {
 
     try {
       const productData = {
-        ...formData,
-        price: parseFloat(formData.price)
+        title: formData.title.trim(),
+        description: formData.description.trim(),
+        price: parseFloat(formData.price),
+        categoryId: parseInt(formData.categoryId),
+        conditionRating: formData.conditionRating,
+        imageUrl: formData.imageUrl.trim() || null,
+        weight: formData.weight ? parseFloat(formData.weight) : null
       };
 
       if (isEditing) {
@@ -118,6 +129,14 @@ const ProductForm = ({ productId, onSuccess }) => {
       {error && (
         <Alert severity="error" sx={{ mb: 2 }}>
           {error}
+          <Button 
+            size="small" 
+            onClick={() => window.open('http://localhost:8080/api/categories', '_blank')}
+            sx={{ ml: 2 }}
+            variant="outlined"
+          >
+            Test Backend
+          </Button>
         </Alert>
       )}
 
@@ -207,11 +226,17 @@ const ProductForm = ({ productId, onSuccess }) => {
                 onChange={handleChange}
                 label="Category"
               >
-                {categories.map((category) => (
-                  <MenuItem key={category.id} value={category.id}>
-                    {category.name}
+                {Array.isArray(categories) && categories.length > 0 ? (
+                  categories.map((category) => (
+                    <MenuItem key={category.id} value={category.id}>
+                      {category.name}
+                    </MenuItem>
+                  ))
+                ) : (
+                  <MenuItem value="" disabled>
+                    <em>Loading categories... (found {categories?.length || 0} categories)</em>
                   </MenuItem>
-                ))}
+                )}
               </Select>
             </FormControl>
           </Grid>
@@ -224,6 +249,20 @@ const ProductForm = ({ productId, onSuccess }) => {
               value={formData.imageUrl}
               onChange={handleChange}
               placeholder="https://example.com/image.jpg"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              label="Weight (kg)"
+              name="weight"
+              type="number"
+              value={formData.weight}
+              onChange={handleChange}
+              placeholder="Product weight in kilograms"
+              inputProps={{ min: 0, step: 0.01 }}
+              helperText="Used for carbon footprint calculations"
             />
           </Grid>
 

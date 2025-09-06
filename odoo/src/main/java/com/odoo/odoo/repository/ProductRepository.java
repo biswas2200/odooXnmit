@@ -28,6 +28,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findBySellerAndStatusOrderByCreatedAtDesc(User seller, Product.ProductStatus status);
 
     List<Product> findBySeller(User seller);
+    
+    // New methods for dashboard functionality
+    List<Product> findBySellerIdOrderByCreatedAtDesc(Long sellerId);
 
     @Query("SELECT COUNT(p) FROM Product p WHERE p.seller = :seller AND p.status = :status")
     Long countBySellerAndStatus(@Param("seller") User seller, @Param("status") Product.ProductStatus status);

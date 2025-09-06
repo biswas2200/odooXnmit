@@ -52,6 +52,8 @@ const Header = () => {
   const menuItems = [
     { text: 'Home', path: '/' },
     { text: 'Products', path: '/products' },
+    ...(isAuthenticated ? [{ text: 'Dashboard', path: '/dashboard' }] : []),
+    ...(user?.role === 'SELLER' ? [{ text: 'Add Product', path: '/add-product' }] : []),
     { text: 'Cart', path: '/cart' }
   ];
 
@@ -99,9 +101,14 @@ const Header = () => {
               {isAuthenticated ? (
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
               ) : (
-                <MenuItem component={Link} to="/login" onClick={handleMenuClose}>
-                  Login
-                </MenuItem>
+                <>
+                  <MenuItem component={Link} to="/signup" onClick={handleMenuClose}>
+                    Sign Up
+                  </MenuItem>
+                  <MenuItem component={Link} to="/login" onClick={handleMenuClose}>
+                    Login
+                  </MenuItem>
+                </>
               )}
             </Menu>
           </>
@@ -146,19 +153,32 @@ const Header = () => {
                   <MenuItem disabled>
                     Welcome, {user?.fullName || user?.username}
                   </MenuItem>
+                  <MenuItem disabled sx={{ fontSize: '0.8rem', color: 'text.secondary' }}>
+                    Role: {user?.role === 'SELLER' ? 'Seller' : 'Buyer'}
+                  </MenuItem>
                   <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </Menu>
               </>
             ) : (
-              <Button
-                color="inherit"
-                component={Link}
-                to="/login"
-                variant="outlined"
-                sx={{ ml: 2 }}
-              >
-                Login
-              </Button>
+              <>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/signup"
+                  sx={{ ml: 2 }}
+                >
+                  Sign Up
+                </Button>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/login"
+                  variant="outlined"
+                  sx={{ ml: 2 }}
+                >
+                  Login
+                </Button>
+              </>
             )}
           </Box>
         )}

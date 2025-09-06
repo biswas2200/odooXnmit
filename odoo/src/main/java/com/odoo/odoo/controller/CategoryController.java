@@ -1,6 +1,7 @@
 package com.odoo.odoo.controller;
 
 
+import com.odoo.odoo.dto.response.CategoryResponse;
 import com.odoo.odoo.model.Category;
 import com.odoo.odoo.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,8 +23,8 @@ public class CategoryController {
 
     @GetMapping
     @Operation(summary = "Get all categories")
-    public ResponseEntity<List<Category>> getAllCategories() {
-        List<Category> categories = categoryService.getAllCategories();
+    public ResponseEntity<List<CategoryResponse>> getAllCategories() {
+        List<CategoryResponse> categories = categoryService.getAllCategoriesResponse();
         return ResponseEntity.ok(categories);
     }
 

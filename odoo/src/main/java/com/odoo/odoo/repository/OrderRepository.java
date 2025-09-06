@@ -18,6 +18,12 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     Page<Order> findByBuyerOrderByCreatedAtDesc(User buyer, Pageable pageable);
     List<Order> findByBuyerOrderByCreatedAtDesc(User buyer);
+    
+    // New methods for dashboard functionality
+    List<Order> findByBuyerIdOrderByCreatedAtDesc(Long buyerId);
+    List<Order> findBySellerIdOrderByCreatedAtDesc(Long sellerId);
+    List<Order> findByBuyerId(Long buyerId);
+    List<Order> findBySellerId(Long sellerId);
 
     @Query("SELECT SUM(o.totalCarbonSaved) FROM Order o WHERE o.buyer = :buyer")
     BigDecimal getTotalCarbonSavedByUser(@Param("buyer") User buyer);

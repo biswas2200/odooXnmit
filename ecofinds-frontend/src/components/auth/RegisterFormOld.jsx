@@ -259,6 +259,20 @@ const RegisterForm = () => {
               ),
             }}
           />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={() => setShowPassword(!showPassword)}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+          />
 
           <Button
             type="submit"
@@ -268,33 +282,29 @@ const RegisterForm = () => {
             sx={{
               mt: 3,
               mb: 2,
-              py: 1.5,
               backgroundColor: '#2e7d32',
-              '&:hover': {
-                backgroundColor: '#1b5e20'
-              },
-              fontSize: '1.1rem'
+              '&:hover': { backgroundColor: '#1b5e20' }
             }}
           >
             {loading ? 'Creating Account...' : 'Create Account'}
           </Button>
-
-          <Box textAlign="center">
-            <Typography variant="body2">
-              Already have an account?{' '}
-              <Link
-                to="/login"
-                style={{
-                  color: '#2e7d32',
-                  textDecoration: 'none',
-                  fontWeight: 'bold'
-                }}
-              >
-                Sign In
-              </Link>
-            </Typography>
-          </Box>
         </Box>
+
+        <Typography align="center" sx={{ mt: 2 }}>
+          Already have an account?{' '}
+          <Link
+            component={Link}
+            to="/login"
+            sx={{
+              color: '#2e7d32',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              '&:hover': { textDecoration: 'underline' }
+            }}
+          >
+            Sign in
+          </Link>
+        </Typography>
       </Paper>
     </Box>
   );

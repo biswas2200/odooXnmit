@@ -7,13 +7,18 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 // Components
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
+import SellerDashboard from './components/dashboard/SellerDashboard';
+import BuyerDashboard from './components/dashboard/BuyerDashboard';
 
 // Pages
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
+import AddProductPage from './pages/AddProductPage';
+import EditProductPage from './pages/EditProductPage';
 
 // Create theme
 const theme = createTheme({
@@ -44,6 +49,17 @@ const ProtectedRoute = ({ children }) => {
   return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
+// Role-based Dashboard Component
+const DashboardRoute = () => {
+  const { user } = useAuth();
+  
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
+  
+  return user.role === 'SELLER' ? <SellerDashboard /> : <BuyerDashboard />;
+};
+
 // App Content Component
 const AppContent = () => {
   return (
@@ -54,17 +70,28 @@ const AppContent = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<LoginPage />} /> {/* Using same component for now */}
+            <Route path="/register" element={<SignupPage />} />
+            <Route path="/signup" element={<SignupPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/products/new" element={
               <ProtectedRoute>
-                <ProductsPage /> {/* This should be a separate AddProductPage */}
+                <AddProductPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/products/edit/:id" element={
+              <ProtectedRoute>
+                <EditProductPage />
               </ProtectedRoute>
             } />
             <Route path="/cart" element={
               <ProtectedRoute>
                 <CartPage />
+              </ProtectedRoute>
+            } />
+            <Route path="/dashboard" element={
+              <ProtectedRoute>
+                <DashboardRoute />
               </ProtectedRoute>
             } />
             <Route path="*" element={<Navigate to="/" />} />

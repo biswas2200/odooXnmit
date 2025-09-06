@@ -27,9 +27,12 @@ const SearchBar = ({ onSearch, onCategoryChange, initialSearch = '', initialCate
   const fetchCategories = async () => {
     try {
       const response = await categoryService.getCategories();
-      setCategories(response);
+      // Ensure response is an array
+      setCategories(Array.isArray(response) ? response : []);
     } catch (error) {
       console.error('Failed to fetch categories:', error);
+      setCategories([]); // Set empty array on error
+      // You can add a toast notification here if needed
     }
   };
 
@@ -97,7 +100,7 @@ const SearchBar = ({ onSearch, onCategoryChange, initialSearch = '', initialCate
               <MenuItem value="">
                 <em>All Categories</em>
               </MenuItem>
-              {categories.map((category) => (
+              {Array.isArray(categories) && categories.map((category) => (
                 <MenuItem key={category.id} value={category.id}>
                   {category.name}
                 </MenuItem>
@@ -136,7 +139,7 @@ const SearchBar = ({ onSearch, onCategoryChange, initialSearch = '', initialCate
               variant="outlined"
             />
           )}
-          {selectedCategory && (
+          {selectedCategory && Array.isArray(categories) && (
             <Chip
               label={`Category: ${categories.find(c => c.id === selectedCategory)?.name || selectedCategory}`}
               onDelete={() => {

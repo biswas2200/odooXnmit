@@ -23,6 +23,9 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 public class User {
 
+    public enum UserRole {
+        BUYER, SELLER, ADMIN
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,6 +43,13 @@ public class User {
     private String fullName;
     private String phone;
     private String profileImage;
+
+    @Enumerated(EnumType.STRING)
+    @Builder.Default
+    private UserRole role = UserRole.BUYER;
+
+    private String businessName;
+    private String businessType;
 
     @Builder.Default
     private BigDecimal totalCarbonSaved = BigDecimal.ZERO;

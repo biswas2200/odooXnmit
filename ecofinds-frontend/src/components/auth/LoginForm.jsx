@@ -149,7 +149,7 @@ const LoginForm = () => {
           Don't have an account?{' '}
           <Link
             component={Link}
-            to="/register"
+            to="/signup"
             sx={{
               color: '#2e7d32',
               textDecoration: 'none',
