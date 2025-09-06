@@ -20,7 +20,7 @@
 EcoFinds is a dual-purpose sustainability platform that combines a consumer-to-consumer marketplace with a business enablement platform. It allows individuals to buy and sell second-hand goods while tracking real environmental impact, and enables businesses to create their own sustainable marketplaces with industry-specific templates.
 
 **Developed for**: Odoo x NMIT Hackathon 2025
-**Team**: [Your Team Name]
+**Team**: [Bytestorm]
 **Category**: Problem Statement 1 - Sustainable Marketplace
 
 ## Problem Statement
