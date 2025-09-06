@@ -1,0 +1,4 @@
+logging:
+  level:
+    com.odoo: DEBUG
+    org.springframework.security: DEBUG
