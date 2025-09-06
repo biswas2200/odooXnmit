@@ -1,0 +1,562 @@
+/* Page-specific styles */
+
+/* Home Page */
+.home-hero {
+  @apply relative bg-gradient-to-r from-primary-600 to-primary-800 text-white;
+}
+
+.home-hero-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24;
+}
+
+.home-hero-title {
+  @apply text-4xl md:text-6xl font-bold mb-6;
+}
+
+.home-hero-subtitle {
+  @apply text-xl md:text-2xl mb-8 opacity-90;
+}
+
+.home-hero-actions {
+  @apply flex flex-col sm:flex-row gap-4;
+}
+
+.home-features {
+  @apply py-16 bg-gray-50 dark:bg-gray-900;
+}
+
+.home-features-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.home-features-title {
+  @apply text-3xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12;
+}
+
+.home-features-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.home-feature {
+  @apply text-center;
+}
+
+.home-feature-icon {
+  @apply w-16 h-16 mx-auto mb-4 text-primary-600 dark:text-primary-400;
+}
+
+.home-feature-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2;
+}
+
+.home-feature-description {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+.home-stats {
+  @apply py-16 bg-white dark:bg-gray-800;
+}
+
+.home-stats-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.home-stats-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+}
+
+.home-stat {
+  @apply text-center;
+}
+
+.home-stat-value {
+  @apply text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2;
+}
+
+.home-stat-label {
+  @apply text-gray-600 dark:text-gray-400;
+}
+
+/* Products Page */
+.products-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.products-header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700;
+}
+
+.products-header-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
+}
+
+.products-title {
+  @apply text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+}
+
+.products-filters {
+  @apply flex flex-col lg:flex-row gap-4;
+}
+
+.products-main {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.products-layout {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-8;
+}
+
+.products-sidebar {
+  @apply lg:col-span-1;
+}
+
+.products-content {
+  @apply lg:col-span-3;
+}
+
+.products-toolbar {
+  @apply flex items-center justify-between mb-6;
+}
+
+.products-sort {
+  @apply flex items-center space-x-2;
+}
+
+.products-view-toggle {
+  @apply flex items-center space-x-2;
+}
+
+.products-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.products-empty {
+  @apply col-span-full text-center py-12;
+}
+
+.products-empty-icon {
+  @apply w-16 h-16 mx-auto mb-4 text-gray-400;
+}
+
+.products-empty-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2;
+}
+
+.products-empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-6;
+}
+
+.products-pagination {
+  @apply flex justify-center mt-8;
+}
+
+/* Product Detail Page */
+.product-detail-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.product-detail-header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700;
+}
+
+.product-detail-breadcrumb {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4;
+}
+
+.product-detail-main {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.product-detail-related {
+  @apply bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700;
+}
+
+.product-detail-related-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.product-detail-related-title {
+  @apply text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6;
+}
+
+/* Cart Page */
+.cart-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.cart-header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700;
+}
+
+.cart-header-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
+}
+
+.cart-title {
+  @apply text-3xl font-bold text-gray-900 dark:text-gray-100;
+}
+
+.cart-main {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.cart-layout {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+}
+
+.cart-items {
+  @apply lg:col-span-2;
+}
+
+.cart-summary {
+  @apply lg:col-span-1;
+}
+
+.cart-empty {
+  @apply text-center py-12;
+}
+
+.cart-empty-icon {
+  @apply w-16 h-16 mx-auto mb-4 text-gray-400;
+}
+
+.cart-empty-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2;
+}
+
+.cart-empty-description {
+  @apply text-gray-600 dark:text-gray-400 mb-6;
+}
+
+/* Profile Page */
+.profile-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.profile-header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700;
+}
+
+.profile-header-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.profile-main {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.profile-layout {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-8;
+}
+
+.profile-sidebar {
+  @apply lg:col-span-1;
+}
+
+.profile-content {
+  @apply lg:col-span-3;
+}
+
+.profile-section {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-6;
+}
+
+.profile-section-title {
+  @apply text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4;
+}
+
+.profile-form {
+  @apply space-y-6;
+}
+
+.profile-form-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.profile-form-full {
+  @apply md:col-span-2;
+}
+
+.profile-avatar-upload {
+  @apply flex items-center space-x-4;
+}
+
+.profile-avatar-preview {
+  @apply w-20 h-20 rounded-full object-cover;
+}
+
+.profile-avatar-actions {
+  @apply space-y-2;
+}
+
+/* Dashboard Page */
+.dashboard-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.dashboard-header {
+  @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700;
+}
+
+.dashboard-header-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
+}
+
+.dashboard-title {
+  @apply text-3xl font-bold text-gray-900 dark:text-gray-100;
+}
+
+.dashboard-main {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.dashboard-overview {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8;
+}
+
+.dashboard-charts {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8;
+}
+
+.dashboard-recent {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+.dashboard-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6;
+}
+
+.dashboard-card-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4;
+}
+
+.dashboard-stat {
+  @apply text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2;
+}
+
+.dashboard-stat-label {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+.dashboard-stat-change {
+  @apply text-sm font-medium;
+}
+
+.dashboard-stat-change-positive {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.dashboard-stat-change-negative {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Sustainability Page */
+.sustainability-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900;
+}
+
+.sustainability-header {
+  @apply bg-gradient-to-r from-green-600 to-green-800 text-white;
+}
+
+.sustainability-header-content {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16;
+}
+
+.sustainability-title {
+  @apply text-4xl font-bold mb-4;
+}
+
+.sustainability-subtitle {
+  @apply text-xl opacity-90;
+}
+
+.sustainability-main {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+.sustainability-overview {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8;
+}
+
+.sustainability-metrics {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8;
+}
+
+.sustainability-badges {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-6;
+}
+
+.sustainability-metric-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 text-center;
+}
+
+.sustainability-metric-icon {
+  @apply w-12 h-12 mx-auto mb-4 text-green-500;
+}
+
+.sustainability-metric-value {
+  @apply text-3xl font-bold text-green-600 dark:text-green-400 mb-2;
+}
+
+.sustainability-metric-label {
+  @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+.sustainability-badge-card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6;
+}
+
+.sustainability-badge-icon {
+  @apply w-16 h-16 mx-auto mb-4 text-4xl;
+}
+
+.sustainability-badge-title {
+  @apply text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 text-center;
+}
+
+.sustainability-badge-description {
+  @apply text-sm text-gray-600 dark:text-gray-400 text-center;
+}
+
+/* Login/Register Pages */
+.auth-page {
+  @apply min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8;
+}
+
+.auth-container {
+  @apply max-w-md w-full space-y-8;
+}
+
+.auth-header {
+  @apply text-center;
+}
+
+.auth-logo {
+  @apply mx-auto h-12 w-auto text-primary-600 dark:text-primary-400;
+}
+
+.auth-title {
+  @apply mt-6 text-3xl font-bold text-gray-900 dark:text-gray-100;
+}
+
+.auth-subtitle {
+  @apply mt-2 text-sm text-gray-600 dark:text-gray-400;
+}
+
+.auth-form {
+  @apply mt-8 space-y-6;
+}
+
+.auth-form-group {
+  @apply space-y-4;
+}
+
+.auth-form-field {
+  @apply space-y-2;
+}
+
+.auth-form-label {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+.auth-form-input {
+  @apply appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400;
+}
+
+.auth-form-error {
+  @apply text-sm text-red-600 dark:text-red-400;
+}
+
+.auth-form-submit {
+  @apply group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+}
+
+.auth-form-link {
+  @apply text-center text-sm text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300;
+}
+
+.auth-divider {
+  @apply relative;
+}
+
+.auth-divider-line {
+  @apply absolute inset-0 flex items-center;
+}
+
+.auth-divider-text {
+  @apply relative flex justify-center text-sm;
+}
+
+.auth-social {
+  @apply mt-6 grid grid-cols-2 gap-3;
+}
+
+.auth-social-button {
+  @apply w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-hero-title {
+    @apply text-3xl;
+  }
+  
+  .home-hero-subtitle {
+    @apply text-lg;
+  }
+  
+  .products-layout {
+    @apply grid-cols-1;
+  }
+  
+  .cart-layout {
+    @apply grid-cols-1;
+  }
+  
+  .profile-layout {
+    @apply grid-cols-1;
+  }
+  
+  .dashboard-overview {
+    @apply grid-cols-2;
+  }
+  
+  .dashboard-charts {
+    @apply grid-cols-1;
+  }
+  
+  .dashboard-recent {
+    @apply grid-cols-1;
+  }
+  
+  .sustainability-overview {
+    @apply grid-cols-2;
+  }
+  
+  .sustainability-metrics {
+    @apply grid-cols-1;
+  }
+  
+  .sustainability-badges {
+    @apply grid-cols-1;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero-title {
+    @apply text-2xl;
+  }
+  
+  .home-hero-subtitle {
+    @apply text-base;
+  }
+  
+  .dashboard-overview {
+    @apply grid-cols-1;
+  }
+  
+  .sustainability-overview {
+    @apply grid-cols-1;
+  }
+}
