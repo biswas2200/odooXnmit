@@ -1,4 +1,5 @@
 package com.odoo.odoo.model;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,45 +24,44 @@ import java.util.List;
 public class User {
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-        @Column(unique = true, nullable = false)
-        private String email;
+    @Column(nullable = false)
+    private String password;
 
-        @Column(nullable = false)
-        private String password;
+    @Column(nullable = false)
+    private String username;
 
-        @Column(nullable = false)
-        private String username;
+    private String fullName;
+    private String phone;
+    private String profileImage;
 
-        private String fullName;
-        private String phone;
-        private String profileImage;
+    @Builder.Default
+    private BigDecimal totalCarbonSaved = BigDecimal.ZERO;
 
-        @Builder.Default
-        private BigDecimal totalCarbonSaved = BigDecimal.ZERO;
+    @Builder.Default
+    private Integer sustainabilityPoints = 0;
 
-        @Builder.Default
-        private Integer sustainabilityPoints = 0;
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<Product> productsListed = new ArrayList<>();
 
-        @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
-        @Builder.Default
-        private List<Product> productsListed = new ArrayList<>();
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<Order> orders = new ArrayList<>();
 
-        @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
-        @Builder.Default
-        private List<Order> orders = new ArrayList<>();
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
 
-        @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-        private Cart cart;
+    @CreatedDate
+    private LocalDateTime createdAt;
 
-        @CreatedDate
-        private LocalDateTime createdAt;
-
-        @LastModifiedDate
-        private LocalDateTime updatedAt;
-    }
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
+}
 }
