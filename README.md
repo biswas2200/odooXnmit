@@ -345,4 +345,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Developed with 💚 for a sustainable future**
 
 **Contact**: [your-email@domain.com]
-**Repository**: [https://github.com/your-username/ecofinds](https://github.com/your-username/ecofinds)
+**Repository**: [https://github.com/biswas2200/odooXnmit](https://github.com/biswas2200/odooXnmit)
